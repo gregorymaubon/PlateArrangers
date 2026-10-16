@@ -1,0 +1,88 @@
+# ====================================================================
+# PlateArrangers - Language file (English)
+# ====================================================================
+# To add a new language :
+# 1. Duplicate this file and rename it (e.g. es.txt, de.txt, it.txt).
+# 2. Modify the LANG_NAME value with your language name.
+# 3. Translate the text after the '=' sign for each variable.
+# 4. Save the file with UTF-8 encoding in this 'languages' folder.
+# 5. Launch or refresh PlateArrangers : your language will appear
+#    automatically in the dropdown list on the window!
+# ====================================================================
+
+LANG_NAME = English
+
+# Main Window and Header
+WINDOW_TITLE = PlateArrangers - 96-Well Plate Image Renaming
+HEADER_TITLE = 🔬 PlateArrangers - Image Renaming
+HEADER_SUBTITLE = Easily organize and rename your 96-well microplate acquisitions from an image sequence (name001, name002, etc.)
+
+# Appearance / Themes
+THEME_SYSTEM = System
+THEME_DARK = Dark
+THEME_LIGHT = Light
+
+# Section 1 : Folder Locations
+SECTION_FOLDERS_TITLE = 📁 Folder Locations
+LBL_SOURCE = Source Folder :
+PLACEHOLDER_SOURCE = Select the folder containing your TIFF images...
+LBL_DEST = Destination Folder :
+PLACEHOLDER_DEST = Select the destination folder...
+BTN_BROWSE = Browse...
+
+# Image Counter
+LBL_COUNT = Number of images found : {count}
+
+# Section 2 : Renaming Parameters
+SECTION_PARAMS_TITLE = ⚙️ Renaming Parameters
+LBL_PROJECT_NAME = Project name :
+PLACEHOLDER_PROJECT_NAME = Ex: Experiment_01
+LBL_START_WELL = Starting well :
+PLACEHOLDER_START_WELL = A01
+LBL_FIELDS = Number of fields :
+PLACEHOLDER_FIELDS = Ex: 4
+LBL_WAVELENGTHS = Number of wavelengths :
+PLACEHOLDER_WAVELENGTHS = Ex: 2
+
+# Action Button and Status
+BTN_RUN = 🚀 Start Processing
+STATUS_RUNNING = Processing in progress...
+
+# Directory Selection Dialogs
+DIALOG_SELECT_SOURCE_TITLE = Select source folder of TIFF images
+DIALOG_SELECT_DEST_TITLE = Select destination folder
+
+# Input Validation Error Messages
+ERR_INPUT_TITLE = Input Error
+ERR_SOURCE_INVALID = Please select a valid source folder.
+ERR_DEST_MISSING = Please select a destination folder.
+ERR_PROJECT_MISSING = Please specify a Project name.
+ERR_START_WELL_MISSING = Please specify the starting well (default A01).
+ERR_FIELDS_INVALID = The number of fields must be a positive integer.
+ERR_WAVELENGTHS_INVALID = The number of wavelengths must be a positive integer.
+
+# Processing Error Messages
+ERR_PROCESSING_TITLE = Processing Error
+ERR_SOURCE_NOT_FOUND = Error : The specified source folder does not exist.
+ERR_NO_TIFF_FOUND = Error : No TIFF file (tif, tiff) found in the source folder.
+ERR_START_WELL_FORMAT = Error : Invalid starting well format. Must be in the format A01 to H12.
+ERR_START_WELL_COL = Error : The starting well column must be between 01 and 12.
+
+# Success Dialog and Completion Notification
+POPUP_SUCCESS_TITLE = Processing Success
+POPUP_SUCCESS_HEADER = 🎉 Processing Complete !
+MSG_SUCCESS_SUMMARY = Success ! {count} images successfully processed.\n\nThe report has been saved to :\n{path}
+BTN_OPEN_DEST = 📂 Open destination folder
+BTN_CLOSE = Close
+ERR_OPEN_FOLDER_TITLE = Error
+ERR_OPEN_FOLDER_MSG = Unable to open folder : {error}
+
+# Renaming Report (rapport_renommage.txt)
+REPORT_TITLE = --- RENAMING REPORT ---
+REPORT_PROJECT = Project : {project}
+REPORT_IMAGES_DETECTED = Images detected in source folder : {count}
+REPORT_IMAGES_PROCESSED = Images actually processed : {count}
+REPORT_START_WELL = Starting well : {well}
+REPORT_CONFIG = Requested configuration : {fields} fields, {wavelengths} wavelengths
+REPORT_COL_OLD = OLD NAME
+REPORT_COL_NEW = NEW NAME

@@ -4,6 +4,22 @@ Toutes les modifications notables apportées au projet **PlateArrangers** sont d
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/), et ce projet adhère aux principes de [Semantic Versioning](https://semver.org/lang/fr/).
 
+## [1.1.0] - 2026-10-16
+
+### ✨ Ajouté
+- **Système d'internationalisation modulaire (`i18n.py`)** :
+  - Externalisation de l'intégralité des textes de l'application (titres, étiquettes, boutons, messages d'erreurs, dialogues et rapports) sous forme de variables de traduction.
+  - Support de fichiers texte simples (`.txt`) au format clé/valeur (`CLE = Valeur`), éditables directement dans le Bloc-notes sans risque d'erreur de syntaxe.
+  - Détection automatique et dynamique de tout nouveau fichier de langue placé dans le dossier `languages/`.
+  - Sélecteur de langue interactif intégré en haut à droite de la fenêtre, à côté du sélecteur de mode d'apparence.
+  - Actualisation dynamique immédiate de l'ensemble de l'interface graphique lors du changement de langue, sans redémarrage nécessaire.
+  - Fichier de référence `languages/fr.txt` et pack de langue anglaise `languages/en.txt` fournis.
+  - Mécanisme de repli sécurisé (*fallback*) vers le français garantissant la stabilité de l'application en cas de clé manquante dans une traduction externe.
+  - Mémorisation de la préférence de langue de l'utilisateur.
+  - Prise en charge du dossier `languages/` dans la configuration PyInstaller (`PlateArrangers.spec`) et support des ajouts de langues externes à côté de l'exécutable autonome.
+- **Documentation multilingue** :
+  - Ajout de la documentation complète en langue anglaise dans `README_EN.md`, le fichier principal `README.md` demeurant en français avec des liens de navigation croisée.
+
 ---
 
 ## [1.0.0] - 2026-10-11

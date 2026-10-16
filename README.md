@@ -2,6 +2,8 @@
 
 Application de renommage et de réorganisation automatisée d'images d'acquisition pour plaques de microscopie 96 puits.
 
+*Disponible en : [Français](README.md) | [English](README_EN.md)*
+
 Contact : @gmaubon / maubon.com
 
 ---
@@ -12,11 +14,14 @@ Lors de campagnes d'imagerie haut contenu (HCS / High-Content Screening) ou d'ac
 
 **PlateArrangers** permet d'organiser et de renommer ces séries d'images en leur appliquant une nomenclature normalisée et rigoureuse, en associant chaque cliché à sa coordonnée de puits, son champ de vision et sa longueur d'onde, en fonction du séquencement des images d'entrée expliqué ci-dessous.
 
+A l'origine ce programme a été crée pour les images provenant d'un microscope Revolution de Discover Echo Inc. pour pouvoir les traiter plus simplement dans CellProfiler.
+
 ---
 
 ## ✨ Fonctionnalités principales
 
 - **Interface graphique moderne** : Conçue avec [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter), intégrant le support dynamique des thèmes *Sombre*, *Clair* et *Système*.
+- **Internationalisation & Traduction libre (i18n)** : Tous les textes sont externalisés sous forme de variables dans des fichiers texte (`.txt`) faciles à éditer. L'application détecte automatiquement toute nouvelle langue présente dans le dossier `languages/` et permet de basculer instantanément de langue sans redémarrage.
 - **Détection dynamique des fichiers** : Analyse en temps réel du dossier source avec indicateur visuel (badge vert/rouge) du nombre d'images TIFF (`.tif`, `.tiff`, `.TIF`, `.TIFF`) détectées.
 - **Support des plaques partielles** : Prise en charge d'un puits de départ personnalisable (ex. `A01`, `C04`), permettant de traiter des plaques dont l'acquisition n'a pas débuté au premier puits.
 - **Gestion multicanale et multichamp** : Paramétrage libre du nombre de champs de vision par puits et du nombre de longueurs d'onde / canaux d'acquisition.
@@ -109,6 +114,22 @@ python app.py
 
 ---
 
+## 🌐 Internationalisation & Ajout d'une nouvelle langue
+
+PlateArrangers permet aux utilisateurs d'ajouter très facilement de nouvelles langues sans aucune compétence en programmation :
+
+1. Rendez-vous dans le dossier `languages/` (situé à la racine du projet ou à côté de l'exécutable `PlateArrangers.exe`).
+2. Dupliquez le fichier `fr.txt` et renommez-le (ex: `en.txt`, `es.txt`, `de.txt`).
+3. Ouvrez le nouveau fichier dans le **Bloc-notes** (ou tout autre éditeur de texte).
+4. Changez la ligne `LANG_NAME = Français` par le nom de votre langue (ex: `LANG_NAME = English`).
+5. Traduisez les valeurs situées après le signe `=` pour chaque variable.
+6. Enregistrez le fichier avec l'encodage **UTF-8**.
+7. Démarrez ou basculez sur PlateArrangers : votre nouvelle langue s'affiche automatiquement dans le menu déroulant en haut à droite !
+
+> **Note de robustesse** : Si une variable de texte est omise dans un fichier de traduction, l'application utilise automatiquement le texte par défaut en français sans jamais planter.
+
+---
+
 ## 📦 Compilation en Exécutable Autonome (.exe)
 
 L'application peut être compilée sous forme d'exécutable autonome pour Windows sans nécessiter l'installation préalable de Python :
@@ -118,7 +139,7 @@ pip install pyinstaller
 pyinstaller PlateArrangers.spec
 ```
 
-L'exécutable généré sera disponible dans le dossier `dist/PlateArrangers/` ou `dist/PlateArrangers.exe`.
+L'exécutable généré sera disponible dans le dossier `dist/PlateArrangers.exe`.
 
 ---
 
@@ -126,9 +147,14 @@ L'exécutable généré sera disponible dans le dossier `dist/PlateArrangers/` o
 
 ```text
 PlateArrangers/
+├── languages/               # Dossier des fichiers de langues (.txt)
+│   ├── fr.txt               # Fichier de langue française (modèle de référence)
+│   └── en.txt               # Fichier de langue anglaise
+├── i18n.py                  # Moteur d'internationalisation et gestion des traductions
 ├── app.py                   # Interface graphique CustomTkinter et point d'entrée
 ├── generateur_plaques.py    # Module autonome / script de renommage en ligne de commande
 ├── PlateArrangers.spec      # Fichier de configuration PyInstaller pour la compilation
 ├── CHANGELOG.md             # Historique des versions et changements
-└── README.md                # Documentation du projet
+├── README.md                # Documentation principale (Français)
+└── README_EN.md             # Documentation en anglais (English)
 ```
